@@ -20,129 +20,34 @@
 }
 html,body{height:100%;overflow:hidden}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);display:flex}
-#rail-bg{
-  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-  background:radial-gradient(ellipse 160% 90% at 62% 52%, #090c14 0%, #050709 65%, #020304 100%);
-}
-#rail-bg::before{
-  content:'';position:absolute;
-  top:28%;left:60%;transform:translateX(-50%);
-  width:800px;height:450px;
-  background:radial-gradient(ellipse at center, rgba(245,158,11,0.06) 0%, transparent 65%);
-  filter:blur(22px);
-}
-#rail-bg::after{
-  content:'';position:absolute;
-  top:26%;left:60%;transform:translateX(-50%);
-  width:360px;height:180px;
-  background:radial-gradient(ellipse at center, rgba(180,210,255,0.035) 0%, transparent 70%);
-  filter:blur(12px);
-}
-.rb-track-wrap{
-  position:absolute;
-  left:calc(252px + (100vw - 252px)*0.5);
-  top:0;width:640px;height:100%;
-  transform:translateX(-50%);perspective:900px;
-}
-.rb-track-inner{
-  position:absolute;inset:0;
-  transform:rotateX(22deg);transform-origin:50% 40%;
-}
-.rb-ballast{
-  position:absolute;
-  left:50%;transform:translateX(-50%);
-  top:0;bottom:-40%;width:250px;
-  background:
-    repeating-linear-gradient(94deg, transparent 0 3px, rgba(38,42,50,0.22) 3px 4px),
-    repeating-linear-gradient(to bottom, transparent 0 5px, rgba(32,36,44,0.18) 5px 6px);
-}
-.rb-sleepers{
-  position:absolute;
-  left:50%;transform:translateX(-50%);
-  top:0;bottom:-40%;width:230px;
-  background:repeating-linear-gradient(
-    to bottom,
-    transparent 0 26px,
-    rgba(36,28,22,0.82) 26px 28px,
-    rgba(50,40,30,0.60) 28px 31px,
-    rgba(36,28,22,0.72) 31px 33px,
-    transparent 33px
-  );
-}
-.rb-rl,.rb-rr{
-  position:absolute;top:0;bottom:-40%;
-  width:6px;border-radius:1px;
-  background:linear-gradient(to right, #1c2329 0%, #475a6a 18%, #8fa2b4 42%, #c6d8e8 50%, #8fa2b4 58%, #475a6a 82%, #1c2329 100%);
-  box-shadow:0 0 10px rgba(135,158,180,0.10), inset 0 1px 0 rgba(255,255,255,0.13);
-}
-.rb-rl{left:calc(50% - 76px);}
-.rb-rr{right:calc(50% - 76px);}
-.rb-cat{
-  position:absolute;
-  left:calc(252px + (100vw-252px)*0.15);
-  width:calc((100vw-252px)*0.7);
-  top:0;height:42%;opacity:0.17;overflow:hidden;
-}
+#rail-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse 160% 90% at 62% 52%, #090c14 0%, #050709 65%, #020304 100%);}
+#rail-bg::before{content:'';position:absolute;top:28%;left:60%;transform:translateX(-50%);width:800px;height:450px;background:radial-gradient(ellipse at center, rgba(245,158,11,0.06) 0%, transparent 65%);filter:blur(22px);}
+#rail-bg::after{content:'';position:absolute;top:26%;left:60%;transform:translateX(-50%);width:360px;height:180px;background:radial-gradient(ellipse at center, rgba(180,210,255,0.035) 0%, transparent 70%);filter:blur(12px);}
+.rb-track-wrap{position:absolute;left:calc(252px + (100vw - 252px)*0.5);top:0;width:640px;height:100%;transform:translateX(-50%);perspective:900px;}
+.rb-track-inner{position:absolute;inset:0;transform:rotateX(22deg);transform-origin:50% 40%;}
+.rb-ballast{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:-40%;width:250px;background:repeating-linear-gradient(94deg, transparent 0 3px, rgba(38,42,50,0.22) 3px 4px),repeating-linear-gradient(to bottom, transparent 0 5px, rgba(32,36,44,0.18) 5px 6px);}
+.rb-sleepers{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:-40%;width:230px;background:repeating-linear-gradient(to bottom,transparent 0 26px,rgba(36,28,22,0.82) 26px 28px,rgba(50,40,30,0.60) 28px 31px,rgba(36,28,22,0.72) 31px 33px,transparent 33px);}
+.rb-rl,.rb-rr{position:absolute;top:0;bottom:-40%;width:6px;border-radius:1px;background:linear-gradient(to right, #1c2329 0%, #475a6a 18%, #8fa2b4 42%, #c6d8e8 50%, #8fa2b4 58%, #475a6a 82%, #1c2329 100%);box-shadow:0 0 10px rgba(135,158,180,0.10), inset 0 1px 0 rgba(255,255,255,0.13);}
+.rb-rl{left:calc(50% - 76px);}.rb-rr{right:calc(50% - 76px);}
+.rb-cat{position:absolute;left:calc(252px + (100vw-252px)*0.15);width:calc((100vw-252px)*0.7);top:0;height:42%;opacity:0.17;overflow:hidden;}
 .rb-cat svg{width:100%;height:100%}
-.rb-sig-wrap{
-  position:absolute;
-  top:30%;left:calc(252px + (100vw-252px)*0.5);
-  transform:translate(-50%,-50%);
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-  opacity:0.55;filter:blur(0.4px);
-}
-.rb-sig-box{
-  background:#0b0e13;border:1px solid rgba(255,255,255,0.1);
-  border-radius:3px;padding:4px;
-  display:flex;flex-direction:column;align-items:center;gap:3px;
-}
+.rb-sig-wrap{position:absolute;top:30%;left:calc(252px + (100vw-252px)*0.5);transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:3px;opacity:0.55;filter:blur(0.4px);}
+.rb-sig-box{background:#0b0e13;border:1px solid rgba(255,255,255,0.1);border-radius:3px;padding:4px;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .rb-sd{width:6px;height:6px;border-radius:50%;}
 .rb-sd.r{background:#ef4444;box-shadow:0 0 7px #ef4444,0 0 14px rgba(239,68,68,0.45);}
 .rb-sd.a{background:#f59e0b;box-shadow:0 0 7px #f59e0b,0 0 14px rgba(245,158,11,0.45);animation:blink-a 3s infinite;}
 .rb-sd.g{background:#22c55e;box-shadow:0 0 7px #22c55e,0 0 14px rgba(34,197,94,0.45);}
 @keyframes blink-a{0%,100%{opacity:1}50%{opacity:0.25}}
 .rb-pole{width:1px;height:28px;background:rgba(255,255,255,0.13);}
-.rb-overlay{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(to bottom, rgba(7,9,12,0.6) 0%, transparent 18%, transparent 72%, rgba(7,9,12,0.75) 100%),
-    radial-gradient(ellipse at center, transparent 32%, rgba(4,5,8,0.7) 100%);
-}
+.rb-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(7,9,12,0.6) 0%, transparent 18%, transparent 72%, rgba(7,9,12,0.75) 100%),radial-gradient(ellipse at center, transparent 32%, rgba(4,5,8,0.7) 100%);}
 .rb-sparks{position:absolute;inset:0;overflow:hidden;}
 .sp{position:absolute;border-radius:50%;opacity:0;animation:sp-rise linear infinite;}
-@keyframes sp-rise{
-  0%  {opacity:0;transform:translate(0,0) scale(1);}
-  15% {opacity:0.55;}
-  85% {opacity:0.1;}
-  100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0.2);}
-}
-.sidebar{
-  width:252px;flex-shrink:0;
-  background:var(--sidebar);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border-right:1px solid rgba(245,158,11,0.1);
-  display:flex;flex-direction:column;overflow-y:auto;
-  position:relative;z-index:20;
-}
-.sidebar::after{
-  content:'';position:absolute;right:15px;top:0;bottom:0;width:1px;
-  background:repeating-linear-gradient(
-    to bottom,
-    rgba(245,158,11,0.1) 0 11px, transparent 11px 19px
-  );pointer-events:none;
-}
-.sb-head{
-  padding:18px 16px 14px;
-  border-bottom:1px solid rgba(245,158,11,0.09);
-  background:rgba(245,158,11,0.025);
-}
+@keyframes sp-rise{0%{opacity:0;transform:translate(0,0) scale(1);}15%{opacity:0.55;}85%{opacity:0.1;}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0.2);}}
+.sidebar{width:252px;flex-shrink:0;background:var(--sidebar);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-right:1px solid rgba(245,158,11,0.1);display:flex;flex-direction:column;overflow-y:auto;position:relative;z-index:20;}
+.sidebar::after{content:'';position:absolute;right:15px;top:0;bottom:0;width:1px;background:repeating-linear-gradient(to bottom,rgba(245,158,11,0.1) 0 11px, transparent 11px 19px);pointer-events:none;}
+.sb-head{padding:18px 16px 14px;border-bottom:1px solid rgba(245,158,11,0.09);background:rgba(245,158,11,0.025);}
 .logo{display:flex;align-items:center;gap:11px;}
-.logo-badge{
-  width:38px;height:38px;background:#111419;
-  border:1px solid rgba(245,158,11,0.28);border-radius:7px;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  box-shadow:0 0 14px rgba(245,158,11,0.09),inset 0 1px 0 rgba(255,255,255,0.04);
-}
+.logo-badge{width:38px;height:38px;background:#111419;border:1px solid rgba(245,158,11,0.28);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 14px rgba(245,158,11,0.09),inset 0 1px 0 rgba(255,255,255,0.04);}
 .sig-tower{display:flex;flex-direction:column;align-items:center;gap:3px;}
 .sd{width:7px;height:7px;border-radius:50%;}
 .sd.r{background:#ef4444;box-shadow:0 0 6px #ef4444;}
@@ -150,110 +55,49 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);displa
 .sd.g{background:#22c55e;box-shadow:0 0 6px #22c55e;}
 .logo-text .lt{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:#f1f5f9;letter-spacing:2px;text-transform:uppercase;line-height:1;}
 .logo-text .ls{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--amber);letter-spacing:2.5px;margin-top:3px;opacity:0.6;}
-.esp-badge{
-  margin-top:11px;display:flex;align-items:center;gap:8px;
-  background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.17);
-  border-radius:4px;padding:6px 10px;
-  font-family:'Share Tech Mono',monospace;font-size:10.5px;color:#f87171;
-  transition:all 0.3s;letter-spacing:0.5px;
-}
+.esp-badge{margin-top:11px;display:flex;align-items:center;gap:8px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.17);border-radius:4px;padding:6px 10px;font-family:'Share Tech Mono',monospace;font-size:10.5px;color:#f87171;transition:all 0.3s;letter-spacing:0.5px;}
 .esp-badge.on{background:var(--g-dim);border-color:rgba(34,197,94,0.23);color:var(--green);}
 .esp-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0;animation:blink-dot 1.4s infinite;}
 .esp-badge.on .esp-dot{background:var(--green);box-shadow:0 0 6px var(--green);animation:glow-d 1.5s infinite;}
 @keyframes blink-dot{0%,100%{opacity:1}50%{opacity:0.1}}
 @keyframes glow-d{0%,100%{box-shadow:0 0 7px var(--green)}50%{box-shadow:0 0 2px var(--green)}}
-.nav-label{
-  font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--dimmer);
-  text-transform:uppercase;letter-spacing:2px;padding:15px 16px 5px;
-  display:flex;align-items:center;gap:7px;
-}
+.nav-label{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--dimmer);text-transform:uppercase;letter-spacing:2px;padding:15px 16px 5px;display:flex;align-items:center;gap:7px;}
 .nav-label::before{content:'//';color:var(--amber);opacity:0.4;font-size:10px;}
 .tie-bar{display:flex;align-items:center;gap:3px;margin:3px 12px;}
 .tie-bar span{display:block;height:2px;flex:1;background:rgba(245,158,11,0.1);border-radius:1px;}
 .tie-bar span:nth-child(2),.tie-bar span:nth-child(4){flex:2;}
 nav ul{list-style:none;padding:0 8px;}
 nav li+li{margin-top:1px;}
-.nl{
-  display:flex;align-items:center;gap:10px;
-  padding:8px 10px;border-radius:6px;
-  color:var(--dim);font-size:13px;font-weight:500;
-  text-decoration:none;cursor:pointer;
-  transition:all 0.12s;position:relative;
-}
+.nl{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;color:var(--dim);font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;transition:all 0.12s;position:relative;}
 .nl:hover{background:rgba(245,158,11,0.04);color:#8a9ab0;}
 .nl.on{background:var(--a-dim);color:var(--amber);}
-.nl.on::before{
-  content:'';position:absolute;left:0;top:18%;bottom:18%;
-  width:3px;border-radius:0 2px 2px 0;
-  background:var(--amber);
-  box-shadow:0 0 9px var(--amber),0 0 4px var(--amber);
-}
+.nl.on::before{content:'';position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:0 2px 2px 0;background:var(--amber);box-shadow:0 0 9px var(--amber),0 0 4px var(--amber);}
 .nl svg{flex-shrink:0;opacity:0.75;}
 .sb-foot{margin-top:auto;padding:6px 8px 0;border-top:1px solid rgba(245,158,11,0.07);}
-.cr-wrap{
-  margin:7px 10px 14px;
-  background:rgba(9,9,15,0.7);
-  border:1px solid rgba(245,158,11,0.14);border-radius:8px;overflow:hidden;
-}
-.cr-head{
-  background:rgba(245,158,11,0.055);border-bottom:1px solid rgba(245,158,11,0.14);
-  padding:6px 12px;display:flex;align-items:center;gap:7px;
-}
+.cr-wrap{margin:7px 10px 14px;background:rgba(9,9,15,0.7);border:1px solid rgba(245,158,11,0.14);border-radius:8px;overflow:hidden;}
+.cr-head{background:rgba(245,158,11,0.055);border-bottom:1px solid rgba(245,158,11,0.14);padding:6px 12px;display:flex;align-items:center;gap:7px;}
 .cr-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 6px var(--amber);}
 .cr-title{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--amber);letter-spacing:2px;text-transform:uppercase;}
 .cr-body{padding:9px 12px 12px;}
 .cr-row{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--border2);}
 .cr-row:last-of-type{border-bottom:none;}
-.cr-av{
-  width:28px;height:28px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(135deg,#131820,#1d2535);
-  border:1px solid rgba(245,158,11,0.22);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;color:var(--amber);
-}
+.cr-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#131820,#1d2535);border:1px solid rgba(245,158,11,0.22);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;color:var(--amber);}
 .cr-name{font-size:11.5px;font-weight:600;color:#bfccd8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .cr-sub{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--dimmer);margin-top:1px;}
-.inst{
-  text-align:center;font-family:'Share Tech Mono',monospace;
-  font-size:8.5px;color:var(--dimmer);letter-spacing:0.5px;line-height:1.55;
-  padding:7px 4px 0;border-top:1px dashed rgba(245,158,11,0.13);margin-top:7px;
-}
+.inst{text-align:center;font-family:'Share Tech Mono',monospace;font-size:8.5px;color:var(--dimmer);letter-spacing:0.5px;line-height:1.55;padding:7px 4px 0;border-top:1px dashed rgba(245,158,11,0.13);margin-top:7px;}
 .main{flex:1;overflow-y:auto;position:relative;z-index:10;}
 .panel{display:none;padding:24px 28px;min-height:100%;}
 .panel.on{display:block;}
-.ptag{
-  display:inline-flex;align-items:center;gap:5px;
-  font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--amber);
-  background:rgba(245,158,11,0.07);border:1px solid var(--a-bdr);
-  border-radius:3px;padding:2px 10px;margin-bottom:7px;
-  letter-spacing:1.5px;text-transform:uppercase;
-}
+.ptag{display:inline-flex;align-items:center;gap:5px;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--amber);background:rgba(245,158,11,0.07);border:1px solid var(--a-bdr);border-radius:3px;padding:2px 10px;margin-bottom:7px;letter-spacing:1.5px;text-transform:uppercase;}
 .ptag::before{content:'▶';font-size:8px;opacity:0.5;}
-.ph h1{
-  font-family:'Rajdhani',sans-serif;font-size:2rem;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;color:#f0f4f8;line-height:1;
-  text-shadow:0 0 28px rgba(245,158,11,0.08);
-}
+.ph h1{font-family:'Rajdhani',sans-serif;font-size:2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#f0f4f8;line-height:1;text-shadow:0 0 28px rgba(245,158,11,0.08);}
 .ph h1 span{color:var(--amber);}
 .ph p{color:var(--dim);font-size:12.5px;margin-top:5px;}
 .ph{margin-bottom:20px;}
-.pill{
-  display:inline-flex;align-items:center;gap:7px;margin-top:9px;
-  font-family:'Share Tech Mono',monospace;font-size:10px;
-  background:var(--g-dim);border:1px solid rgba(34,197,94,0.17);
-  border-radius:3px;padding:3px 12px;color:var(--green);letter-spacing:1px;
-}
-.pill-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--green);box-shadow:0 0 5px var(--green);
-  animation:glow-d 1.5s infinite;
-}
+.pill{display:inline-flex;align-items:center;gap:7px;margin-top:9px;font-family:'Share Tech Mono',monospace;font-size:10px;background:var(--g-dim);border:1px solid rgba(34,197,94,0.17);border-radius:3px;padding:3px 12px;color:var(--green);letter-spacing:1px;}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 5px var(--green);animation:glow-d 1.5s infinite;}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
-.sc{
-  background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid var(--border);border-radius:8px;padding:16px 18px;
-  position:relative;overflow:hidden;
-}
+.sc{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:8px;padding:16px 18px;position:relative;overflow:hidden;}
 .sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,0.05);}
 .sc.g::before{background:var(--green);box-shadow:0 0 10px rgba(34,197,94,0.45);}
 .sc.y::before{background:var(--amber);box-shadow:0 0 10px rgba(245,158,11,0.45);}
@@ -264,23 +108,11 @@ nav li+li{margin-top:1px;}
 .sc.y h3{color:var(--amber);text-shadow:0 0 14px rgba(245,158,11,0.4);}
 .sc.r h3{color:var(--red);text-shadow:0 0 14px rgba(239,68,68,0.4);}
 #map-box{height:400px;border-radius:8px;overflow:hidden;border:1px solid rgba(245,158,11,0.14);box-shadow:0 0 28px rgba(0,0,0,0.5);}
-.cw{
-  background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid var(--border);border-radius:8px;padding:20px;height:385px;position:relative;
-}
-.cw::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:8px 8px 0 0;
-  background:linear-gradient(90deg,var(--amber) 0%,rgba(245,158,11,0.15) 50%,transparent 100%);
-}
+.cw{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:8px;padding:20px;height:385px;position:relative;}
+.cw::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:8px 8px 0 0;background:linear-gradient(90deg,var(--amber) 0%,rgba(245,158,11,0.15) 50%,transparent 100%);}
 .tw{overflow-x:auto;}
 table{width:100%;border-collapse:collapse;font-size:12.5px;}
-thead th{
-  padding:9px 14px;text-align:left;
-  font-family:'Share Tech Mono',monospace;font-size:9.5px;color:var(--amber);
-  text-transform:uppercase;letter-spacing:1.5px;
-  border-bottom:1px solid rgba(245,158,11,0.28);
-  background:rgba(245,158,11,0.04);opacity:0.8;
-}
+thead th{padding:9px 14px;text-align:left;font-family:'Share Tech Mono',monospace;font-size:9.5px;color:var(--amber);text-transform:uppercase;letter-spacing:1.5px;border-bottom:1px solid rgba(245,158,11,0.28);background:rgba(245,158,11,0.04);opacity:0.8;}
 tbody tr{border-bottom:1px solid var(--border2);transition:background 0.1s;}
 tbody tr:hover{background:rgba(245,158,11,0.03);}
 tbody td{padding:9px 14px;color:#9aacbc;}
@@ -289,486 +121,127 @@ tbody td{padding:9px 14px;color:#9aacbc;}
 .by{background:var(--a-dim);color:var(--amber);border:1px solid var(--a-bdr);}
 .br{background:var(--r-dim);color:var(--red);border:1px solid rgba(239,68,68,0.2);}
 .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.smc{
-  background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid var(--border);border-radius:8px;padding:20px 22px;position:relative;overflow:hidden;
-}
+.smc{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:8px;padding:20px 22px;position:relative;overflow:hidden;}
 .smc .lbl{font-family:'Share Tech Mono',monospace;font-size:9.5px;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;}
 .smc .val{font-family:'Rajdhani',sans-serif;font-size:2.5rem;font-weight:700;color:#f0f4f8;line-height:1;}
 .smc .sub{font-size:11px;color:var(--dimmer);margin-top:5px;}
-#raw{
-  background:rgba(4,5,8,0.88);backdrop-filter:blur(8px);
-  border:1px solid var(--border);border-left:3px solid var(--amber);
-  border-radius:0 8px 8px 0;padding:18px;
-  font-family:'Share Tech Mono',monospace;font-size:11.5px;color:#487060;
-  white-space:pre-wrap;max-height:420px;overflow-y:auto;margin-top:16px;line-height:1.7;
-}
-.mtog{
-  display:none;position:fixed;top:12px;left:12px;z-index:100;
-  background:rgba(8,9,13,0.92);backdrop-filter:blur(8px);
-  border:1px solid var(--a-bdr);border-radius:6px;
-  padding:8px;color:var(--amber);cursor:pointer;
-}
-@media(max-width:780px){
-  .sidebar{position:fixed;left:-252px;top:0;bottom:0;z-index:200;transition:left 0.24s;}
-  .sidebar.open{left:0;}
-  .mtog{display:flex;}
-  .main{padding-top:52px;}
-  .panel{padding:16px;}
-  .cards{grid-template-columns:repeat(2,1fr);}
-  .sg{grid-template-columns:repeat(2,1fr);}
-  .rb-track-wrap{left:50%;}
-}
-@media(max-width:480px){
-  .cards{grid-template-columns:1fr 1fr;}
-  .sg{grid-template-columns:1fr;}
-}
+#raw{background:rgba(4,5,8,0.88);backdrop-filter:blur(8px);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:18px;font-family:'Share Tech Mono',monospace;font-size:11.5px;color:#487060;white-space:pre-wrap;max-height:420px;overflow-y:auto;margin-top:16px;line-height:1.7;}
+.cam-wrap{position:relative;background:#060810;border:1px solid rgba(245,158,11,0.18);border-radius:8px;overflow:hidden;box-shadow:0 0 36px rgba(0,0,0,0.6);min-height:320px;}
+.cam-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber) 0%,rgba(245,158,11,0.15) 50%,transparent 100%);z-index:2;}
+#cam-feed{display:block;width:100%;max-height:520px;object-fit:contain;background:#000;}
+.cam-hud{position:absolute;bottom:0;left:0;right:0;padding:10px 16px;background:linear-gradient(to top,rgba(4,5,8,0.92) 0%,transparent 100%);display:flex;align-items:center;justify-content:space-between;z-index:3;}
+.cam-hud-l{display:flex;align-items:center;gap:10px;}
+.cam-live-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;box-shadow:0 0 8px #ef4444;animation:blink-dot 1s infinite;}
+.cam-live-dot.on{background:var(--green);box-shadow:0 0 8px var(--green);animation:glow-d 1.5s infinite;}
+.cam-live-lbl{font-family:'Share Tech Mono',monospace;font-size:11px;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:2px;}
+.cam-ts{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--dimmer);}
+.cam-corner{position:absolute;width:18px;height:18px;z-index:4;pointer-events:none;}
+.cam-corner.tl{top:14px;left:12px;border-top:2px solid rgba(245,158,11,0.65);border-left:2px solid rgba(245,158,11,0.65);}
+.cam-corner.tr{top:14px;right:12px;border-top:2px solid rgba(245,158,11,0.65);border-right:2px solid rgba(245,158,11,0.65);}
+.cam-corner.bl{bottom:42px;left:12px;border-bottom:2px solid rgba(245,158,11,0.65);border-left:2px solid rgba(245,158,11,0.65);}
+.cam-corner.br{bottom:42px;right:12px;border-bottom:2px solid rgba(245,158,11,0.65);border-right:2px solid rgba(245,158,11,0.65);}
+.cam-err{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(4,5,8,0.93);z-index:5;}
+.cam-err-txt{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--dimmer);letter-spacing:1px;text-align:center;line-height:1.75;}
+.cam-err.hidden{display:none;}
+.cam-retry-btn{margin-top:6px;padding:5px 20px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:4px;color:var(--amber);font-family:'Share Tech Mono',monospace;font-size:10px;cursor:pointer;letter-spacing:1px;}
+.mtog{display:none;position:fixed;top:12px;left:12px;z-index:100;background:rgba(8,9,13,0.92);backdrop-filter:blur(8px);border:1px solid var(--a-bdr);border-radius:6px;padding:8px;color:var(--amber);cursor:pointer;}
+@media(max-width:780px){.sidebar{position:fixed;left:-252px;top:0;bottom:0;z-index:200;transition:left 0.24s;}.sidebar.open{left:0;}.mtog{display:flex;}.main{padding-top:52px;}.panel{padding:16px;}.cards{grid-template-columns:repeat(2,1fr);}.sg{grid-template-columns:repeat(2,1fr);}.rb-track-wrap{left:50%;}}
+@media(max-width:480px){.cards{grid-template-columns:1fr 1fr;}.sg{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-
 <div id="rail-bg" aria-hidden="true">
-  <div class="rb-track-wrap">
-    <div class="rb-track-inner">
-      <div class="rb-ballast"></div>
-      <div class="rb-sleepers"></div>
-      <div class="rb-rl"></div>
-      <div class="rb-rr"></div>
-    </div>
-  </div>
-  <div class="rb-cat">
-    <svg viewBox="0 0 600 260" preserveAspectRatio="none">
-      <path d="M0,22 Q100,62 200,32 Q300,10 400,32 Q500,58 600,22" stroke="rgba(185,195,210,0.28)" stroke-width="1.2" fill="none"/>
-      <path d="M0,22 Q100,62 200,32 Q300,10 400,32 Q500,58 600,22" stroke="rgba(145,158,170,0.10)" stroke-width="3.5" fill="none"/>
-      <line x1="100" y1="44" x2="100" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/>
-      <line x1="200" y1="32" x2="200" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/>
-      <line x1="300" y1="12" x2="300" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/>
-      <line x1="400" y1="32" x2="400" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/>
-      <line x1="500" y1="48" x2="500" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/>
-      <path d="M0,32 Q150,78 300,24 Q450,72 600,32" stroke="rgba(155,165,178,0.11)" stroke-width="0.8" fill="none"/>
-    </svg>
-  </div>
-  <div class="rb-sig-wrap">
-    <div class="rb-sig-box">
-      <div class="rb-sd r"></div>
-      <div class="rb-sd a"></div>
-      <div class="rb-sd g"></div>
-    </div>
-    <div class="rb-pole"></div>
-  </div>
+  <div class="rb-track-wrap"><div class="rb-track-inner"><div class="rb-ballast"></div><div class="rb-sleepers"></div><div class="rb-rl"></div><div class="rb-rr"></div></div></div>
+  <div class="rb-cat"><svg viewBox="0 0 600 260" preserveAspectRatio="none"><path d="M0,22 Q100,62 200,32 Q300,10 400,32 Q500,58 600,22" stroke="rgba(185,195,210,0.28)" stroke-width="1.2" fill="none"/><path d="M0,22 Q100,62 200,32 Q300,10 400,32 Q500,58 600,22" stroke="rgba(145,158,170,0.10)" stroke-width="3.5" fill="none"/><line x1="100" y1="44" x2="100" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/><line x1="200" y1="32" x2="200" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/><line x1="300" y1="12" x2="300" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/><line x1="400" y1="32" x2="400" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/><line x1="500" y1="48" x2="500" y2="82" stroke="rgba(165,175,185,0.16)" stroke-width="0.8"/><path d="M0,32 Q150,78 300,24 Q450,72 600,32" stroke="rgba(155,165,178,0.11)" stroke-width="0.8" fill="none"/></svg></div>
+  <div class="rb-sig-wrap"><div class="rb-sig-box"><div class="rb-sd r"></div><div class="rb-sd a"></div><div class="rb-sd g"></div></div><div class="rb-pole"></div></div>
   <div class="rb-sparks" id="sparks"></div>
   <div class="rb-overlay"></div>
 </div>
-
 <aside class="sidebar" id="sb">
   <div class="sb-head">
     <div class="logo">
-      <div class="logo-badge">
-        <div class="sig-tower">
-          <div class="sd r"></div>
-          <div class="sd a"></div>
-          <div class="sd g"></div>
-        </div>
-      </div>
-      <div class="logo-text">
-        <div class="lt">RailPulse</div>
-        <div class="ls">TRACK · MONITOR</div>
-      </div>
+      <div class="logo-badge"><div class="sig-tower"><div class="sd r"></div><div class="sd a"></div><div class="sd g"></div></div></div>
+      <div class="logo-text"><div class="lt">RailPulse</div><div class="ls">TRACK · MONITOR</div></div>
     </div>
-    <div class="esp-badge" id="esp">
-      <span class="esp-dot"></span>
-      <span id="esp-lbl">ESP32 · OFFLINE</span>
-    </div>
+    <div class="esp-badge" id="esp"><span class="esp-dot"></span><span id="esp-lbl">ESP32 · OFFLINE</span></div>
   </div>
   <div class="nav-label">Monitoring</div>
-  <nav>
-    <ul>
-      <li><a class="nl on" data-panel="map" href="#">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Track Map
-      </a></li>
-      <li><a class="nl" data-panel="health" href="#">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        Health Profile
-      </a></li>
-      <li><a class="nl" data-panel="gauge" href="#">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Gauge Profile
-      </a></li>
-      <li><a class="nl" data-panel="fft" href="#">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="3" height="8" rx="0.5"/><rect x="7.5" y="8" width="3" height="12" rx="0.5"/><rect x="12" y="4" width="3" height="16" rx="0.5"/><rect x="16.5" y="9" width="3" height="11" rx="0.5"/></svg>
-        Live FFT
-      </a></li>
-    </ul>
-  </nav>
+  <nav><ul>
+    <li><a class="nl on" data-panel="camera" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7 16 12 23 17V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>Live Camera</a></li>
+    <li><a class="nl" data-panel="map" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Track Map</a></li>
+    <li><a class="nl" data-panel="health" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Health Profile</a></li>
+    <li><a class="nl" data-panel="gauge" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Gauge Profile</a></li>
+    <li><a class="nl" data-panel="fft" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="3" height="8" rx="0.5"/><rect x="7.5" y="8" width="3" height="12" rx="0.5"/><rect x="12" y="4" width="3" height="16" rx="0.5"/><rect x="16.5" y="9" width="3" height="11" rx="0.5"/></svg>Live FFT</a></li>
+  </ul></nav>
   <div class="tie-bar"><span></span><span></span><span></span><span></span><span></span></div>
   <div class="nav-label">Analysis</div>
-  <nav>
-    <ul>
-      <li><a class="nl" data-panel="events" href="#">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-        Events Table
-      </a></li>
-      <li><a class="nl" data-panel="summary" href="#">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
-        Summary Stats
-      </a></li>
-    </ul>
-  </nav>
-  <div class="sb-foot">
-    <a class="nl" data-panel="raw" href="#">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-      Raw JSON
-    </a>
-  </div>
+  <nav><ul>
+    <li><a class="nl" data-panel="events" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Events Table</a></li>
+    <li><a class="nl" data-panel="summary" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>Summary Stats</a></li>
+  </ul></nav>
+  <div class="sb-foot"><a class="nl" data-panel="raw" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Raw JSON</a></div>
   <div class="nav-label">Creators</div>
   <div class="cr-wrap">
     <div class="cr-head"><div class="cr-dot"></div><div class="cr-title">Project Team</div></div>
     <div class="cr-body">
-      <div class="cr-row">
-        <div class="cr-av">IM</div>
-        <div><div class="cr-name">Ishaan Maheshwari</div><div class="cr-sub">B.TECH VLSI · SEM I</div></div>
-      </div>
-      <div class="cr-row">
-        <div class="cr-av">SK</div>
-        <div><div class="cr-name">Sidhu Kumar</div><div class="cr-sub">B.TECH VLSI · SEM I</div></div>
-      </div>
+      <div class="cr-row"><div class="cr-av">IM</div><div><div class="cr-name">Ishaan Maheshwari</div><div class="cr-sub">B.TECH VLSI · SEM I</div></div></div>
+      <div class="cr-row"><div class="cr-av">SK</div><div><div class="cr-name">Sidhu Kumar</div><div class="cr-sub">B.TECH VLSI · SEM I</div></div></div>
       <div class="inst">VIVEKANANDA INSTITUTE OF<br>PROFESSIONAL STUDIES</div>
     </div>
   </div>
 </aside>
-
-<button class="mtog" id="mtog">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-</button>
-
+<button class="mtog" id="mtog"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 <main class="main">
-  <section class="panel on" id="panel-map">
-    <div class="ph">
-      <div class="ptag">Live Telemetry</div>
-      <h1>Track <span>Map</span></h1>
-      <p>Real-time GPS position of the ESP32 inspection bot on the railway corridor</p>
-      <div class="pill"><span class="pill-dot"></span>POLLING · 2s · FLASK BACKEND</div>
+  <section class="panel on" id="panel-camera">
+    <div class="ph"><div class="ptag">Raspberry Pi Stream</div><h1>Live <span>Camera</span></h1><p>Real-time MJPEG video feed from the onboard Raspberry Pi camera module</p><div class="pill"><span class="pill-dot"></span>STREAM · MJPEG · RASPBERRY PI</div></div>
+    <div class="cam-wrap">
+      <div class="cam-corner tl"></div><div class="cam-corner tr"></div><div class="cam-corner bl"></div><div class="cam-corner br"></div>
+      <img id="cam-feed" src="/video_feed" alt="Live camera feed" onerror="camErr()" onload="camOk()">
+      <div class="cam-err hidden" id="cam-err">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#2e3548" stroke-width="1.3"><path d="M23 7 16 12 23 17V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/><line x1="1" y1="1" x2="23" y2="23" stroke="#ef4444" stroke-width="1.2"/></svg>
+        <div class="cam-err-txt">STREAM UNAVAILABLE<br><span style="font-size:9px;opacity:0.55">/video_feed — Check Pi camera is connected<br>and the stream at 10.154.32.188:5000 is running</span></div>
+        <button class="cam-retry-btn" onclick="retryCam()">RETRY</button>
+      </div>
+      <div class="cam-hud"><div class="cam-hud-l"><div class="cam-live-dot" id="cam-dot"></div><div class="cam-live-lbl" id="cam-lbl">CONNECTING...</div></div><div class="cam-ts" id="cam-ts">—</div></div>
     </div>
-    <div class="cards">
-      <div class="sc g"><label>Track Clear</label><h3 id="c-ok">0</h3></div>
-      <div class="sc y"><label>Caution</label><h3 id="c-cau">0</h3></div>
-      <div class="sc r"><label>Danger</label><h3 id="c-dan">0</h3></div>
-      <div class="sc"><label>Last Signal</label><h3 id="c-last" style="font-size:1.1rem;margin-top:4px;letter-spacing:1px">—</h3></div>
-    </div>
+  </section>
+  <section class="panel" id="panel-map">
+    <div class="ph"><div class="ptag">Live Telemetry</div><h1>Track <span>Map</span></h1><p>Real-time GPS position — Pitampura, New Delhi railway corridor</p><div class="pill"><span class="pill-dot"></span>POLLING · 2s · FLASK BACKEND</div></div>
+    <div class="cards"><div class="sc g"><label>Track Clear</label><h3 id="c-ok">0</h3></div><div class="sc y"><label>Caution</label><h3 id="c-cau">0</h3></div><div class="sc r"><label>Danger</label><h3 id="c-dan">0</h3></div><div class="sc"><label>Last Signal</label><h3 id="c-last" style="font-size:1.1rem;margin-top:4px;letter-spacing:1px">—</h3></div></div>
     <div id="map-box"></div>
   </section>
-
-  <section class="panel" id="panel-health">
-    <div class="ph">
-      <div class="ptag">Vibration Analysis</div>
-      <h1>Health <span>Profile</span></h1>
-      <p>Track condition score (0–100) over the last 50 readings</p>
-    </div>
-    <div class="cw"><canvas id="ch-health"></canvas></div>
-  </section>
-
-  <section class="panel" id="panel-gauge">
-    <div class="ph">
-      <div class="ptag">Track Geometry</div>
-      <h1>Gauge <span>Profile</span></h1>
-      <p>Gauge deviation from 1676 mm nominal over the last 50 readings</p>
-    </div>
-    <div class="cw"><canvas id="ch-gauge"></canvas></div>
-  </section>
-
-  <section class="panel" id="panel-fft">
-    <div class="ph">
-      <div class="ptag">Frequency Spectrum</div>
-      <h1>Live <span>FFT</span></h1>
-      <p>Raw FFT magnitude array from the latest ESP32 reading</p>
-    </div>
-    <div class="cw"><canvas id="ch-fft"></canvas></div>
-  </section>
-
-  <section class="panel" id="panel-events">
-    <div class="ph">
-      <div class="ptag">Detection Log</div>
-      <h1>Events <span>Table</span></h1>
-      <p>Rolling log of all readings received from Flask</p>
-    </div>
-    <div class="tw">
-      <table>
-        <thead><tr><th>#</th><th>Time</th><th>Signal</th><th>Score</th><th>Combined</th><th>Sats</th><th>Position</th></tr></thead>
-        <tbody id="evt-body"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="panel" id="panel-summary">
-    <div class="ph">
-      <div class="ptag">Session Overview</div>
-      <h1>Summary <span>Stats</span></h1>
-      <p>Aggregated metrics for this monitoring session</p>
-    </div>
-    <div class="sg">
-      <div class="smc"><div class="lbl">Total Readings</div><div class="val" id="s-tot">0</div><div class="sub">Since page load</div></div>
-      <div class="smc"><div class="lbl">Danger Signals</div><div class="val" id="s-crit" style="color:var(--red)">0</div><div class="sub">CRITICAL verdicts</div></div>
-      <div class="smc"><div class="lbl">Caution Signals</div><div class="val" id="s-mod" style="color:var(--amber)">0</div><div class="sub">MODERATE verdicts</div></div>
-      <div class="smc"><div class="lbl">Clear Signals</div><div class="val" id="s-ok" style="color:var(--green)">0</div><div class="sub">HEALTHY verdicts</div></div>
-      <div class="smc"><div class="lbl">Avg Health Score</div><div class="val" id="s-avg">—</div><div class="sub">Vibration index 0–100</div></div>
-      <div class="smc"><div class="lbl">Last Position</div><div class="val" id="s-gps" style="font-size:1rem;margin-top:8px;font-family:'Share Tech Mono',monospace">—</div><div class="sub">Lat / Lng</div></div>
-    </div>
-  </section>
-
-  <section class="panel" id="panel-raw">
-    <div class="ph">
-      <div class="ptag">Debug Console</div>
-      <h1>Raw <span>JSON</span></h1>
-      <p>Live payload from <code style="color:var(--amber);font-family:'Share Tech Mono',monospace">GET /api/esp32/data</code></p>
-    </div>
-    <pre id="raw">// Awaiting first transmission from ESP32...</pre>
-  </section>
+  <section class="panel" id="panel-health"><div class="ph"><div class="ptag">Vibration Analysis</div><h1>Health <span>Profile</span></h1><p>Track condition score (0–100) over the last 50 readings</p></div><div class="cw"><canvas id="ch-health"></canvas></div></section>
+  <section class="panel" id="panel-gauge"><div class="ph"><div class="ptag">Track Geometry</div><h1>Gauge <span>Profile</span></h1><p>Gauge deviation from 1676 mm nominal over the last 50 readings</p></div><div class="cw"><canvas id="ch-gauge"></canvas></div></section>
+  <section class="panel" id="panel-fft"><div class="ph"><div class="ptag">Frequency Spectrum</div><h1>Live <span>FFT</span></h1><p>Raw FFT magnitude array from the latest ESP32 reading</p></div><div class="cw"><canvas id="ch-fft"></canvas></div></section>
+  <section class="panel" id="panel-events"><div class="ph"><div class="ptag">Detection Log</div><h1>Events <span>Table</span></h1><p>Rolling log of all readings received from Flask</p></div><div class="tw"><table><thead><tr><th>#</th><th>Time</th><th>Signal</th><th>Score</th><th>Combined</th><th>Sats</th><th>Position</th></tr></thead><tbody id="evt-body"></tbody></table></div></section>
+  <section class="panel" id="panel-summary"><div class="ph"><div class="ptag">Session Overview</div><h1>Summary <span>Stats</span></h1><p>Aggregated metrics for this monitoring session</p></div><div class="sg"><div class="smc"><div class="lbl">Total Readings</div><div class="val" id="s-tot">0</div><div class="sub">Since page load</div></div><div class="smc"><div class="lbl">Danger Signals</div><div class="val" id="s-crit" style="color:var(--red)">0</div><div class="sub">CRITICAL verdicts</div></div><div class="smc"><div class="lbl">Caution Signals</div><div class="val" id="s-mod" style="color:var(--amber)">0</div><div class="sub">MODERATE verdicts</div></div><div class="smc"><div class="lbl">Clear Signals</div><div class="val" id="s-ok" style="color:var(--green)">0</div><div class="sub">HEALTHY verdicts</div></div><div class="smc"><div class="lbl">Avg Health Score</div><div class="val" id="s-avg">—</div><div class="sub">Vibration index 0–100</div></div><div class="smc"><div class="lbl">Last Position</div><div class="val" id="s-gps" style="font-size:1rem;margin-top:8px;font-family:'Share Tech Mono',monospace">—</div><div class="sub">Lat / Lng</div></div></div></section>
+  <section class="panel" id="panel-raw"><div class="ph"><div class="ptag">Debug Console</div><h1>Raw <span>JSON</span></h1><p>Live payload from <code style="color:var(--amber);font-family:'Share Tech Mono',monospace">GET /api/esp32/data</code></p></div><pre id="raw">// Awaiting first transmission from ESP32...</pre></section>
 </main>
-
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
-/* SPARKS */
-(function() {
-  var c = document.getElementById('sparks');
-  var cols = ['rgba(245,158,11,', 'rgba(210,175,80,', 'rgba(255,195,70,'];
-  for (var i = 0; i < 16; i++) {
-    var el = document.createElement('div');
-    el.className = 'sp';
-    var sz  = Math.random() * 2 + 0.8;
-    var col = cols[Math.floor(Math.random() * cols.length)];
-    var x   = 252 + Math.random() * Math.max(1, window.innerWidth - 260);
-    var y   = Math.random() * window.innerHeight;
-    var dx  = (Math.random() - 0.5) * 55 + 'px';
-    var dy  = -(Math.random() * 110 + 35) + 'px';
-    var dur = Math.random() * 6 + 4;
-    var del = Math.random() * 9;
-    el.style.cssText = 'width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;'
-      +'background:'+col+'0.9);box-shadow:0 0 4px 2px '+col+'0.22);'
-      +'--dx:'+dx+';--dy:'+dy+';animation-duration:'+dur+'s;animation-delay:'+del+'s;';
-    c.appendChild(el);
-  }
-})();
-
-/* NAV — attached FIRST before anything else */
-var allLinks  = document.querySelectorAll('[data-panel]');
-var allPanels = document.querySelectorAll('.panel');
-
-allLinks.forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    var target = this.getAttribute('data-panel');
-    allPanels.forEach(function(p){ p.classList.remove('on'); });
-    allLinks.forEach(function(l){ l.classList.remove('on'); });
-    var pEl = document.getElementById('panel-' + target);
-    if (pEl) pEl.classList.add('on');
-    this.classList.add('on');
-    document.getElementById('sb').classList.remove('open');
-  });
-});
-
-document.getElementById('mtog').addEventListener('click', function() {
-  document.getElementById('sb').classList.toggle('open');
-});
-
-/* MAP */
-var map, botMarker, trackLine, botIcon;
-try {
-  map = L.map('map-box').setView([17.385, 78.4867], 13);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
-  botIcon = L.divIcon({
-    className: '',
-    html: '<div style="width:15px;height:15px;background:#f59e0b;border:2px solid #fff;border-radius:50%;box-shadow:0 0 12px rgba(245,158,11,0.9)"></div>',
-    iconSize: [15,15], iconAnchor: [7,7]
-  });
-  trackLine = L.polyline([], { color:'#f59e0b', weight:2.5, opacity:0.75 }).addTo(map);
-} catch(e) { console.warn('Map init failed:', e); }
-
-/* CHARTS */
-var mono = { family: 'Share Tech Mono', size: 10 };
-var gc   = 'rgba(255,255,255,0.03)';
-var tc   = '#374555';
-
-var hChart, gChart, fChart;
-try {
-  hChart = new Chart(document.getElementById('ch-health'), {
-    type: 'line',
-    data: { labels:[], datasets:[{ data:[], borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,0.07)', borderWidth:2, pointRadius:2.5, pointBackgroundColor:'#f59e0b', fill:true, tension:0.4 }] },
-    options: {
-      responsive:true, maintainAspectRatio:false, animation:{ duration:280 },
-      plugins:{ legend:{ display:false } },
-      scales:{
-        x:{ ticks:{ color:tc, maxTicksLimit:10, font:mono }, grid:{ color:gc } },
-        y:{ min:0, max:100, ticks:{ color:tc, font:mono }, grid:{ color:gc } }
-      }
-    }
-  });
-} catch(e){ console.warn('Health chart:', e); }
-
-try {
-  gChart = new Chart(document.getElementById('ch-gauge'), {
-    type: 'line',
-    data: { labels:[], datasets:[{ data:[], borderColor:'#22c55e', backgroundColor:'rgba(34,197,94,0.07)', borderWidth:2, pointRadius:2.5, pointBackgroundColor:'#22c55e', fill:true, tension:0.4 }] },
-    options: {
-      responsive:true, maintainAspectRatio:false, animation:{ duration:280 },
-      plugins:{ legend:{ display:false } },
-      scales:{
-        x:{ ticks:{ color:tc, maxTicksLimit:10, font:mono }, grid:{ color:gc } },
-        y:{ ticks:{ color:tc, font:mono }, grid:{ color:gc } }
-      }
-    }
-  });
-} catch(e){ console.warn('Gauge chart:', e); }
-
-try {
-  fChart = new Chart(document.getElementById('ch-fft'), {
-    type: 'bar',
-    data: { labels:[], datasets:[{ data:[], backgroundColor:'rgba(245,158,11,0.35)', borderColor:'#f59e0b', borderWidth:1 }] },
-    options: {
-      responsive:true, maintainAspectRatio:false, animation:{ duration:180 },
-      plugins:{ legend:{ display:false } },
-      scales:{
-        x:{ ticks:{ color:tc, maxTicksLimit:12, font:mono }, grid:{ color:gc } },
-        y:{ ticks:{ color:tc, font:mono }, grid:{ color:gc } }
-      }
-    }
-  });
-} catch(e){ console.warn('FFT chart:', e); }
-
-/* POLLING */
-var API      = '/api/esp32/data';
-var POLL_MS  = 2000;
-var MAX_HIST = 50;
-var STALE_MS = 10000;
-var readings = [], rowIdx = 0, lastStr = '', lastNewAt = null;
-var counts   = { HEALTHY:0, MODERATE:0, CRITICAL:0 };
-
-function toScore(c) { return Math.min(Math.round((c||0)*100), 100); }
-function toGauge(s) { var d=Math.round((s/100)*20); return 1676+(Math.random()>0.5?d:-d); }
-function vBadge(v) {
-  var u=(v||'').toUpperCase();
-  return u==='CRITICAL'?'br':(u==='MODERATE'||u==='HIGH')?'by':'bg';
-}
-function setESP(on) {
-  var el=document.getElementById('esp'), lb=document.getElementById('esp-lbl');
-  if(on){ el.classList.add('on'); lb.textContent='ESP32 · ONLINE'; }
-  else  { el.classList.remove('on'); lb.textContent='ESP32 · OFFLINE'; }
-}
-function updateCounts(v) {
-  if(counts[v]!==undefined) counts[v]++;
-  document.getElementById('c-ok').textContent  = counts.HEALTHY;
-  document.getElementById('c-cau').textContent = counts.MODERATE;
-  document.getElementById('c-dan').textContent = counts.CRITICAL;
-}
-
-async function poll() {
-  try {
-    var res = await fetch(API, { cache:'no-store' });
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    var data = await res.json();
-
-    if(!data || !data.features) {
-      setESP(false);
-      document.getElementById('raw').textContent =
-        '// Flask is running.\n// Waiting for ESP32 to POST to /api/esp32/data\n\n// Response: ' + JSON.stringify(data);
-      return;
-    }
-
-    var str = JSON.stringify(data);
-    if(str !== lastStr){ lastStr = str; lastNewAt = Date.now(); }
-    var age = Date.now() - lastNewAt;
-    if(age > STALE_MS){
-      setESP(false);
-      document.getElementById('raw').textContent =
-        '// [STALE — '+Math.round(age/1000)+'s ago]\n\n'+JSON.stringify(data,null,2);
-      return;
-    }
-    setESP(true);
-
-    var verdict  = ((data.verdict||'UNKNOWN')+'').toUpperCase();
-    var combined = (data.features && data.features.combined!=null) ? data.features.combined : 0;
-    var score    = toScore(combined);
-    var gauge    = toGauge(score);
-    var lat      = (data.gps && data.gps.latitude  != null) ? data.gps.latitude  : null;
-    var lng      = (data.gps && data.gps.longitude != null) ? data.gps.longitude : null;
-    var sats     = (data.gps && data.gps.satellites) ? data.gps.satellites : '—';
-    var ts       = new Date().toLocaleTimeString();
-
-    readings.push({ verdict, score, gauge, lat, lng, sats, combined, ts });
-    if(readings.length > MAX_HIST) readings.shift();
-    rowIdx++;
-
-    updateCounts(verdict);
-    var lv = document.getElementById('c-last');
-    lv.textContent = verdict;
-    lv.style.color = verdict==='CRITICAL'?'#ef4444':verdict==='MODERATE'?'#f59e0b':'#22c55e';
-
-    if(map && lat!==null && lng!==null){
-      var ll=[lat,lng];
-      if(!botMarker) botMarker=L.marker(ll,{icon:botIcon}).addTo(map);
-      else botMarker.setLatLng(ll);
-      if(trackLine) trackLine.addLatLng(ll);
-      map.setView(ll, map.getZoom());
-    }
-
-    var labels = readings.map(function(_,i){ return '#'+(i+1); });
-    var hcol   = score>70?'#ef4444':score>40?'#f59e0b':'#22c55e';
-
-    if(hChart){
-      hChart.data.labels = labels;
-      hChart.data.datasets[0].data = readings.map(function(r){ return r.score; });
-      hChart.data.datasets[0].borderColor = hcol;
-      hChart.data.datasets[0].pointBackgroundColor = hcol;
-      hChart.update();
-    }
-    if(gChart){
-      gChart.data.labels = labels;
-      gChart.data.datasets[0].data = readings.map(function(r){ return r.gauge; });
-      gChart.update();
-    }
-    if(fChart && data.fftMagnitudes && data.fftMagnitudes.length){
-      var fft   = data.fftMagnitudes;
-      var step  = Math.max(1, Math.floor(fft.length/64));
-      var slice = fft.filter(function(_,i){ return i%step===0; }).slice(0,64);
-      fChart.data.labels  = slice.map(function(_,i){ return i*step; });
-      fChart.data.datasets[0].data = slice;
-      fChart.update();
-    }
-
-    var tbody = document.getElementById('evt-body');
-    var row   = document.createElement('tr');
-    row.innerHTML =
-      '<td style="color:var(--dimmer);font-family:\'Share Tech Mono\',monospace;font-size:11px">'+rowIdx+'</td>'+
-      '<td style="font-family:\'Share Tech Mono\',monospace;font-size:11px">'+ts+'</td>'+
-      '<td><span class="badge '+vBadge(verdict)+'">'+verdict+'</span></td>'+
-      '<td>'+score+'</td>'+
-      '<td style="font-family:\'Share Tech Mono\',monospace;font-size:11px">'+combined.toFixed(4)+'</td>'+
-      '<td>'+sats+'</td>'+
-      '<td style="font-family:\'Share Tech Mono\',monospace;font-size:10px;color:var(--dimmer)">'+(lat!==null?lat.toFixed(5)+', '+lng.toFixed(5):'—')+'</td>';
-    tbody.insertBefore(row, tbody.firstChild);
-    if(tbody.children.length > MAX_HIST) tbody.removeChild(tbody.lastChild);
-
-    var total = readings.length;
-    document.getElementById('s-tot').textContent  = total;
-    document.getElementById('s-crit').textContent = readings.filter(function(r){ return r.verdict==='CRITICAL'; }).length;
-    document.getElementById('s-mod').textContent  = readings.filter(function(r){ return r.verdict==='MODERATE'; }).length;
-    document.getElementById('s-ok').textContent   = readings.filter(function(r){ return r.verdict==='HEALTHY'; }).length;
-    document.getElementById('s-avg').textContent  = Math.round(readings.reduce(function(s,r){ return s+r.score; },0)/total);
-    document.getElementById('s-gps').textContent  = lat!==null?lat.toFixed(5)+' / '+lng.toFixed(5):'—';
-    document.getElementById('raw').textContent    = JSON.stringify(data, null, 2);
-
-  } catch(err) {
-    setESP(false);
-    document.getElementById('raw').textContent =
-      '// Cannot reach Flask.\n// Run: python app.py\n\n// Error: '+err.message;
-  }
-}
-
-poll();
-setInterval(poll, POLL_MS);
+(function(){var c=document.getElementById('sparks'),cols=['rgba(245,158,11,','rgba(210,175,80,','rgba(255,195,70,'];for(var i=0;i<16;i++){var el=document.createElement('div');el.className='sp';var sz=Math.random()*2+0.8,col=cols[Math.floor(Math.random()*cols.length)],x=252+Math.random()*Math.max(1,window.innerWidth-260),y=Math.random()*window.innerHeight,dx=(Math.random()-0.5)*55+'px',dy=-(Math.random()*110+35)+'px',dur=Math.random()*6+4,del=Math.random()*9;el.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+col+'0.9);box-shadow:0 0 4px 2px '+col+'0.22);--dx:'+dx+';--dy:'+dy+';animation-duration:'+dur+'s;animation-delay:'+del+'s;';c.appendChild(el);}})();
+var allLinks=document.querySelectorAll('[data-panel]'),allPanels=document.querySelectorAll('.panel');
+allLinks.forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var t=this.getAttribute('data-panel');allPanels.forEach(function(p){p.classList.remove('on');});allLinks.forEach(function(l){l.classList.remove('on');});var pEl=document.getElementById('panel-'+t);if(pEl)pEl.classList.add('on');this.classList.add('on');document.getElementById('sb').classList.remove('open');if(t==='map'&&map)setTimeout(function(){map.invalidateSize();},120);});});
+document.getElementById('mtog').addEventListener('click',function(){document.getElementById('sb').classList.toggle('open');});
+var camAlive=false,camTsTimer=null;
+function camOk(){if(camAlive)return;camAlive=true;document.getElementById('cam-err').classList.add('hidden');document.getElementById('cam-dot').classList.add('on');document.getElementById('cam-lbl').textContent='LIVE';clearInterval(camTsTimer);camTsTimer=setInterval(function(){document.getElementById('cam-ts').textContent=new Date().toLocaleTimeString();},1000);}
+function camErr(){camAlive=false;clearInterval(camTsTimer);document.getElementById('cam-err').classList.remove('hidden');document.getElementById('cam-dot').classList.remove('on');document.getElementById('cam-lbl').textContent='OFFLINE';document.getElementById('cam-ts').textContent='—';}
+function retryCam(){var img=document.getElementById('cam-feed');camAlive=false;document.getElementById('cam-err').classList.add('hidden');document.getElementById('cam-lbl').textContent='CONNECTING...';img.src='/video_feed?t='+Date.now();}
+var PITAMPURA=[28.6986,77.1313],map,botMarker,trackLine,botIcon;
+try{map=L.map('map-box').setView(PITAMPURA,14);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors'}).addTo(map);botIcon=L.divIcon({className:'',html:'<div style="width:15px;height:15px;background:#f59e0b;border:2px solid #fff;border-radius:50%;box-shadow:0 0 12px rgba(245,158,11,0.9)"></div>',iconSize:[15,15],iconAnchor:[7,7]});botMarker=L.marker(PITAMPURA,{icon:botIcon}).addTo(map).bindPopup('<b style="font-family:Share Tech Mono,monospace;font-size:11px;color:#f59e0b">ESP32 BOT</b><br><span style="font-size:10px;color:#4a5870">Pitampura, New Delhi</span>');trackLine=L.polyline([PITAMPURA],{color:'#f59e0b',weight:2.5,opacity:0.75}).addTo(map);}catch(e){console.warn('Map:',e);}
+var mono={family:'Share Tech Mono',size:10},gc='rgba(255,255,255,0.03)',tc='#374555',hChart,gChart,fChart;
+try{hChart=new Chart(document.getElementById('ch-health'),{type:'line',data:{labels:[],datasets:[{data:[],borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,0.07)',borderWidth:2,pointRadius:2.5,pointBackgroundColor:'#f59e0b',fill:true,tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,animation:{duration:280},plugins:{legend:{display:false}},scales:{x:{ticks:{color:tc,maxTicksLimit:10,font:mono},grid:{color:gc}},y:{min:0,max:100,ticks:{color:tc,font:mono},grid:{color:gc}}}}});}catch(e){}
+try{gChart=new Chart(document.getElementById('ch-gauge'),{type:'line',data:{labels:[],datasets:[{data:[],borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.07)',borderWidth:2,pointRadius:2.5,pointBackgroundColor:'#22c55e',fill:true,tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,animation:{duration:280},plugins:{legend:{display:false}},scales:{x:{ticks:{color:tc,maxTicksLimit:10,font:mono},grid:{color:gc}},y:{ticks:{color:tc,font:mono},grid:{color:gc}}}}});}catch(e){}
+try{fChart=new Chart(document.getElementById('ch-fft'),{type:'bar',data:{labels:[],datasets:[{data:[],backgroundColor:'rgba(245,158,11,0.35)',borderColor:'#f59e0b',borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,animation:{duration:180},plugins:{legend:{display:false}},scales:{x:{ticks:{color:tc,maxTicksLimit:12,font:mono},grid:{color:gc}},y:{ticks:{color:tc,font:mono},grid:{color:gc}}}}});}catch(e){}
+var API='/api/esp32/data',POLL_MS=2000,MAX_HIST=50,STALE_MS=10000,readings=[],rowIdx=0,lastStr='',lastNewAt=null,counts={HEALTHY:0,MODERATE:0,CRITICAL:0};
+function toScore(c){return Math.min(Math.round((c||0)*100),100);}
+function toGauge(s){var d=Math.round((s/100)*20);return 1676+(Math.random()>0.5?d:-d);}
+function vBadge(v){var u=(v||'').toUpperCase();return u==='CRITICAL'?'br':(u==='MODERATE'||u==='HIGH')?'by':'bg';}
+function setESP(on){var el=document.getElementById('esp'),lb=document.getElementById('esp-lbl');if(on){el.classList.add('on');lb.textContent='ESP32 · ONLINE';}else{el.classList.remove('on');lb.textContent='ESP32 · OFFLINE';}}
+function updateCounts(v){if(counts[v]!==undefined)counts[v]++;document.getElementById('c-ok').textContent=counts.HEALTHY;document.getElementById('c-cau').textContent=counts.MODERATE;document.getElementById('c-dan').textContent=counts.CRITICAL;}
+async function poll(){try{var res=await fetch(API,{cache:'no-store'});if(!res.ok)throw new Error('HTTP '+res.status);var data=await res.json();if(!data||!data.features){setESP(false);document.getElementById('raw').textContent='// Flask running.\n// Waiting for ESP32 POST to /api/esp32/data\n\n'+JSON.stringify(data,null,2);return;}var str=JSON.stringify(data);if(str!==lastStr){lastStr=str;lastNewAt=Date.now();}var age=Date.now()-lastNewAt;if(age>STALE_MS){setESP(false);document.getElementById('raw').textContent='// [STALE — '+Math.round(age/1000)+'s ago]\n\n'+JSON.stringify(data,null,2);return;}setESP(true);var verdict=((data.verdict||'UNKNOWN')+'').toUpperCase(),combined=(data.features&&data.features.combined!=null)?data.features.combined:0,score=toScore(combined),gauge=toGauge(score),lat=(data.gps&&data.gps.latitude!=null)?data.gps.latitude:null,lng=(data.gps&&data.gps.longitude!=null)?data.gps.longitude:null,sats=(data.gps&&data.gps.satellites)?data.gps.satellites:'—',ts=new Date().toLocaleTimeString();readings.push({verdict,score,gauge,lat,lng,sats,combined,ts});if(readings.length>MAX_HIST)readings.shift();rowIdx++;updateCounts(verdict);var lv=document.getElementById('c-last');lv.textContent=verdict;lv.style.color=verdict==='CRITICAL'?'#ef4444':verdict==='MODERATE'?'#f59e0b':'#22c55e';if(map&&lat!==null&&lng!==null){var ll=[lat,lng];if(botMarker)botMarker.setLatLng(ll);else botMarker=L.marker(ll,{icon:botIcon}).addTo(map);if(trackLine)trackLine.addLatLng(ll);map.setView(ll,map.getZoom());}var labels=readings.map(function(_,i){return '#'+(i+1);}),hcol=score>70?'#ef4444':score>40?'#f59e0b':'#22c55e';if(hChart){hChart.data.labels=labels;hChart.data.datasets[0].data=readings.map(function(r){return r.score;});hChart.data.datasets[0].borderColor=hcol;hChart.data.datasets[0].pointBackgroundColor=hcol;hChart.update();}if(gChart){gChart.data.labels=labels;gChart.data.datasets[0].data=readings.map(function(r){return r.gauge;});gChart.update();}if(fChart&&data.fftMagnitudes&&Array.isArray(data.fftMagnitudes)){var fl=data.fftMagnitudes.map(function(_,i){return i;});fChart.data.labels=fl;fChart.data.datasets[0].data=data.fftMagnitudes;fChart.update();}var tb=document.getElementById('evt-body'),posStr=lat!==null?(lat.toFixed(5)+', '+lng.toFixed(5)):'No GPS';var row=document.createElement('tr');row.innerHTML='<td style="color:var(--dimmer)">'+rowIdx+'</td><td>'+ts+'</td><td><span class="badge '+vBadge(verdict)+'">'+verdict+'</span></td><td>'+score+'</td><td>'+(combined||0).toFixed(4)+'</td><td>'+sats+'</td><td style="font-family:\'Share Tech Mono\',monospace;font-size:11px">'+posStr+'</td>';tb.insertBefore(row,tb.firstChild);if(tb.rows.length>60)tb.deleteRow(tb.rows.length-1);document.getElementById('raw').textContent=JSON.stringify(data,null,2);var tot=rowIdx;document.getElementById('s-tot').textContent=tot;document.getElementById('s-crit').textContent=counts.CRITICAL;document.getElementById('s-mod').textContent=counts.MODERATE;document.getElementById('s-ok').textContent=counts.HEALTHY;var scoreSum=readings.reduce(function(a,r){return a+r.score;},0);document.getElementById('s-avg').textContent=tot?Math.round(scoreSum/readings.length):'—';document.getElementById('s-gps').textContent=lat!==null?(lat.toFixed(5)+'\n'+lng.toFixed(5)):'—';}catch(ex){setESP(false);document.getElementById('raw').textContent='// Connection error\n// '+ex.message;}}
+poll();setInterval(poll,POLL_MS);
 </script>
 </body>
 </html>
